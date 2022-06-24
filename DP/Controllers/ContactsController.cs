@@ -8,7 +8,7 @@ namespace DP.Controllers
 {
 	public class ContactsController : Controller
 	{
-		public IActionResult Index()
+		public IActionResult Contacts()
 		{
 			return View();
 		}

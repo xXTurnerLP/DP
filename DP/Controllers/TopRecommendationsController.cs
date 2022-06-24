@@ -8,7 +8,7 @@ namespace DP.Controllers
 {
 	public class TopRecommendationsController : Controller
 	{
-		public IActionResult Index()
+		public IActionResult TopRecommendations()
 		{
 			return View();
 		}
