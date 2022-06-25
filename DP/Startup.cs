@@ -12,11 +12,14 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using static System.Net.Mime.MediaTypeNames;
 
 namespace DP
 {
 	public class Startup
 	{
+		public static readonly string RootPassword = "asdasd";
+
 		public Startup(IConfiguration configuration)
 		{
 			Configuration = configuration;
