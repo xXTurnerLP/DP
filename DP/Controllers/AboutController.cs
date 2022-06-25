@@ -7,12 +7,12 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace DP.Controllers
 {
-    public class HomeController : Controller
+    public class AboutController : Controller
     {
-        [HttpGet]
-        public IActionResult Index()
+		[HttpGet]
+		public IActionResult Index()
 		{
-            return View("Index");
+			return View("Index");
 		}
 	}
 }
