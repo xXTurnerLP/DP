@@ -1,3 +1,25 @@
 ﻿<header>
-	header
+    <div class="position-relative" style=" display:flex;  height: 25px">
+        <div class="container">
+            <div class="row row-cols-auto">
+
+                <div class="col position-absolute top-0 start-0">Идеален Дом</div>
+
+                <div class="container position-absolute top-0 start-50 translate-middle-x row row-cols-auto"> 
+                    <div class="col "><a class="nav-link active" aria-current="page" asp-controller="Home" >Начало</a></div>
+                    <div class="col "><a class="nav-link" asp-controller="Offers" >Оферти</a></div>
+                    <div class="col "><a class="nav-link" asp-area="" asp-controller="Top" >Топ Предложения</a></div>
+                    <div class="col "><a class="nav-link" asp-area="" asp-controller="About" >За нас</a></div>
+                    <div class="col "><a class="nav-link" asp-area="" asp-controller="Contacts" >Контакти</a></div>
+                </div>
+
+                <!-- Register / Login -->
+                <div class="container row row-cols-auto position-absolute top-0 end-0 ">
+                    <div class="col "><a href="#">Регистрирай се</a></div>
+                    <div class="col "><a href="#">Влез</a></div>
+                </div>
+
+            </div>
+        </div>
+        </div>
 </header>
