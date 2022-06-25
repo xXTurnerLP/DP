@@ -31,6 +31,9 @@ namespace DP
 
 			app.UseRouting();
 
+			app.UseAuthentication();
+			app.UseAuthorization();
+
 			app.UseEndpoints(endpointRouteBuilder =>
 			{
 				endpointRouteBuilder.MapControllerRoute("default", "{controller=Home}/{action=Index}");
