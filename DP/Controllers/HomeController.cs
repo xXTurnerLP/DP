@@ -18,9 +18,9 @@ namespace DP.Controllers
 			_logger = logger;
 		}
 
-		public IActionResult Home()
+		public IActionResult Index()
 		{
-			return View();
+			return View("Home");
 		}
 
 		public IActionResult Privacy()
