@@ -1,0 +1,7 @@
+﻿<div class="alert alert-success" role="alert">
+	@ViewData["message"].ToString()
+</div>
+
+@{
+	await Html.RenderPartialAsync(ViewData["view"].ToString());
+}
