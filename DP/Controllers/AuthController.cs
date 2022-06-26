@@ -69,8 +69,10 @@ namespace DP.Controllers
 		}
 
 		[HttpPost]
-		public IActionResult CreateAccount(string email, string password, string repeatPassword, bool isAdmin)
+		public IActionResult CreateAccount(string email, string password, string repeatPassword, string isAdmin)
 		{
+			bool isAdminBool = isAdmin == "on";
+
 			if (password != repeatPassword)
 			{
 				ViewData["message"] = "Паролите не съвпадат!";
@@ -90,14 +92,14 @@ namespace DP.Controllers
 			User user = new User
 			{
 				Email = email,
-				Password = sha256_hash($"salt1337ASJKHD{password}"),
-				Role = isAdmin ? "Admin" : "User"
+				Password = sha256_hash($"{email}salt1337ASJKHD{password}"),
+				Role = isAdminBool ? "Admin" : "User"
 			};
 
 			userDb.User.Add(user);
 			userDb.SaveChangesAsync();
 
-			ViewData["message"] = isAdmin ? "Успешно създаден администраторски акаунт!" : "Успешно създаден акаунт!";
+			ViewData["message"] = isAdminBool ? "Успешно създаден администраторски акаунт!" : "Успешно създаден акаунт!";
 			ViewData["view"] = "PanelPartial";
 			return View("Success");
 		}
