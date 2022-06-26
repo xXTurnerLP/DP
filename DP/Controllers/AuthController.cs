@@ -1,27 +1,27 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Diagnostics;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Configuration;
-using DP.Models.Auth.Contexts;
 using Microsoft.EntityFrameworkCore;
 using DP.Models.Auth;
 using System.Collections.ObjectModel;
 using System.Security.Cryptography;
+using DP.Models;
+using System;
 
 namespace DP.Controllers
 {
 	public class AuthController : Controller
 	{
-		readonly UserContext userDb;
+		readonly ApplicationContext database;
 		readonly string m_RootPassword;
 
 		public AuthController(DbContextOptions options)
 		{
-			userDb = new UserContext(options);
+			database = new ApplicationContext(options);
 
 			IConfigurationRoot configuration = new ConfigurationBuilder()
 				.SetBasePath(AppDomain.CurrentDomain.BaseDirectory)
@@ -29,6 +29,11 @@ namespace DP.Controllers
 				.Build();
 
 			m_RootPassword = configuration.GetValue<string>("RootPassword");
+		}
+
+		~AuthController()
+		{
+			database.Dispose();
 		}
 
 		[HttpGet]
@@ -70,7 +75,7 @@ namespace DP.Controllers
 		}
 
 		[HttpPost]
-		public IActionResult CreateAccount(string email, string password, string repeatPassword, string isAdmin, string rootPassword)
+		public IActionResult RootCreateAccount(string email, string password, string repeatPassword, string isAdmin, string rootPassword)
 		{
 			if (rootPassword != m_RootPassword)
 			{
@@ -88,7 +93,7 @@ namespace DP.Controllers
 				return View("Error");
 			}
 
-			if (userDb.User.Where(u => u.Email == email).ToArray().Length != 0)
+			if (database.Users.Where(u => u.Email == email).ToArray().Length != 0)
 			{
 				ViewData["message"] = "Вече съществува акаунт с този имейл адрес!";
 				ViewData["view"] = "PanelPartial";
@@ -104,8 +109,8 @@ namespace DP.Controllers
 				Role = isAdminBool ? "Admin" : "User"
 			};
 
-			userDb.User.Add(user);
-			userDb.SaveChangesAsync();
+			database.Users.Add(user);
+			database.SaveChangesAsync();
 
 			ViewData["message"] = isAdminBool ? "Успешно създаден администраторски акаунт!" : "Успешно създаден акаунт!";
 			ViewData["view"] = "PanelPartial";

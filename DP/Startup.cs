@@ -10,8 +10,8 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Builder;
-using DP.Models.Auth.Contexts;
 using Microsoft.Extensions.Hosting;
+using DP.Models;
 
 namespace DP
 {
@@ -29,7 +29,7 @@ namespace DP
 			services.AddControllersWithViews();
 			services.AddRazorPages();
 
-			services.AddDbContext<UserContext>(options => options.UseSqlServer(configuration.GetConnectionString("default-database")));
+			services.AddDbContext<ApplicationContext>(options => options.UseSqlServer(configuration.GetConnectionString("default-database")));
 		}
 
 		// This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
