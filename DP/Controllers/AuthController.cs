@@ -42,6 +42,7 @@ namespace DP.Controllers
 		{
 			if (rootPassword == m_RootPassword)
 			{
+				ViewData["rootPassword"] = rootPassword;
 				return View("PanelPartial");
 			}
 			else
@@ -69,8 +70,15 @@ namespace DP.Controllers
 		}
 
 		[HttpPost]
-		public IActionResult CreateAccount(string email, string password, string repeatPassword, string isAdmin)
+		public IActionResult CreateAccount(string email, string password, string repeatPassword, string isAdmin, string rootPassword)
 		{
+			if (rootPassword != m_RootPassword)
+			{
+				ViewData["message"] = "Невалидна парола!";
+				ViewData["view"] = "RootLoginPartial";
+				return View("Error");
+			}
+
 			bool isAdminBool = isAdmin == "on";
 
 			if (password != repeatPassword)
