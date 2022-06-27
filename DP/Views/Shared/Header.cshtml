@@ -1,16 +1,21 @@
-﻿<header>
-    <div class="position-relative" style=" display:flex;  height: 25px">
+﻿<div style="width: 100%; border: 2px solid green;"></div>
+<header style="height:fit-content; margin-bottom:2%">
+    <div class="position-relative" style=" display: flex; height: 25px; margin-top: 0.5%">
+        
         <div class="container">
             <div class="row row-cols-auto">
+                
+                <div class="container position-absolute top-0 start-0 row row-cols-auto" style="display: flex;  border: 3px solid green; border-right-color: transparent; border-top-color: transparent; box-shadow: 1px 5px 5px 0px #a6a6a6 ">
+                    <div class="col " style="margin:0;font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif; font-size:2em;"><a href="/" style="text-decoration:none; color:black">Идеален <span style="color:green">Дом</span></a></div>
+                    <a href="/"><img class="col " src="https://i.ibb.co/qdQ0fjd/image.png" style="height:45px" /></a>
+                </div>
 
-                <div class="col position-absolute top-0 start-0" style="margin-top:0.5%">Идеален Дом</div>
-
-                <div class="container position-absolute top-0 start-50 translate-middle-x row row-cols-auto">
-                    <div class="col "><a class="nav-link active" aria-current="page" href="/">Начало</a></div>
-                    <div class="col "><a class="nav-link" asp-controller="Offers" href="/Offers">Оферти</a></div>
-                    <div class="col "><a class="nav-link" asp-area="" asp-controller="Top" href="/Top">Топ Предложения</a></div>
-                    <div class="col "><a class="nav-link" asp-area="" asp-controller="About" href="/About">За нас</a></div>
-                    <div class="col "><a class="nav-link" asp-area="" asp-controller="Contacts" href="/Contacts">Контакти</a></div>
+                <div class="container position-absolute top-0 start-50 translate-middle-x row row-cols-auto" style="margin-top:0.5%;">
+                    <div class="col "><a class="nav-link active" aria-current="page" href="/" style="border:1px solid blue;">Начало</a></div>
+                    <div class="col "><a class="nav-link" asp-controller="Offers" href="/Offers" style="border:1px solid blue">Оферти</a></div>
+                    <div class="col "><a class="nav-link" asp-area="" asp-controller="Top" href="/Top" style="border:1px solid blue">Топ Предложения</a></div>
+                    <div class="col "><a class="nav-link" asp-area="" asp-controller="About" href="/About" style="border:1px solid blue">За нас</a></div>
+                    <div class="col "><a class="nav-link" asp-area="" asp-controller="Contacts" href="/Contacts" style="border:1px solid blue">Контакти</a></div>
                 </div>
 
                 <!-- Register / Login -->
@@ -23,6 +28,5 @@
             </div>
         </div>
     </div>
-    <hr />
 
 </header>
