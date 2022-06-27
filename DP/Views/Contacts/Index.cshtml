@@ -1,5 +1,350 @@
 ﻿@{
 	ViewData["Title"] = "Контакти";
 }
+<style>
+    .containerInfo {
+        margin-top: 5%;
+        width: 1100px;
+        height: 600px;
+        background-color: white;
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
+        box-shadow: 1px 5px 5px 1px gray;
+    }
 
-Контакти:
+    .placeRest {
+        display: flex;
+        height: 100%;
+    }
+
+    .leftInfo {
+        width: 30%;
+        height: 100%;
+        background-color: green;
+    }
+
+    .info {
+        margin: 10%;
+    }
+
+    .Contc {
+        font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+        font-size: 28px;
+        color: white;
+    }
+
+    .InfoBM {
+        font-family: "Poppins", Arial, sans-serif;
+        margin-bottom: 25px;
+    }
+
+    .AdresFlex {
+        display: flex;
+        width: 100%;
+        height: 100px;
+        align-items: center
+    }
+
+    .spanz {
+        color: rgb(51, 3, 3);
+    }
+
+    .Adres {
+        margin-left: 10%;
+        text-align: left;
+        font-size: 1.085em;
+        font-family: "Poppins", Arial, sans-serif;
+    }
+
+    .Telephone {
+        display: flex;
+        width: 100%;
+        height: 100px;
+        align-items: center
+    }
+
+    .TelephoneInf {
+        margin-left: 7%;
+        text-align: left;
+        font-size: 0.95em;
+        font-family: "Poppins", Arial, sans-serif;
+    }
+
+    .telHref {
+        text-decoration: none;
+        color: deepskyblue;
+    }
+
+    .Email {
+        display: flex;
+        width: 100%;
+        height: 100px;
+        align-items: center
+    }
+
+    .EmailInfo {
+        margin-left: 7%;
+        text-align: left;
+        font-size: 0.95em;
+        font-family: "Poppins", Arial, sans-serif;
+    }
+
+    .rightInfo {
+        width: 80%;
+        height: 100%;
+        background-color: #ffffff;
+    }
+
+    .fillingInfoCont {
+        width: 100%;
+        height: 20%;
+        display: flex;
+    }
+
+    .NameInfo {
+        width: 100%;
+        height: 100%;
+    }
+
+
+    input[type=text]:focus {
+        transition: 0.4s;
+        border-bottom: 1px solid #0c8a1b;
+    }
+
+    input[type=text] {
+        width: 100%;
+        padding: 3%;
+        font-size: 1.1em;
+        box-sizing: border-box;
+        border: 3px solid rgb(19, 10, 44);
+        outline: none;
+        border: none;
+        border-radius: 2px;
+        border-bottom: 1px solid rgba(139, 139, 139, 0.363);
+    }
+
+    .NameAbvTextInName {
+        color: #000;
+        text-transform: uppercase;
+        font-size: 12px;
+        font-weight: 600;
+        font-family: "Poppins", Arial, sans-serif;
+        margin-left: 2%;
+    }
+
+    .teller1 {
+        display: flex;
+        flex-direction: row;
+        margin: 2%;
+        margin-top: 6%;
+        margin-left: 5%;
+        margin-right: 5%;
+    }
+
+    .group1 {
+        width: 45%;
+        padding-right: 3%;
+        padding-left: 3%;
+    }
+
+    .group2 {
+        width: 45%;
+        padding-right: 3%;
+        padding-left: 3%;
+    }
+
+    .EmailAbvTextInEmail {
+        color: #000;
+        text-transform: uppercase;
+        font-size: 12px;
+        font-weight: 600;
+        font-family: "Poppins", Arial, sans-serif;
+    }
+
+    .SubInfo {
+        width: 100%;
+        height: 20%;
+    }
+
+
+    .teller2 {
+        width: 90%;
+        height: 100%;
+        display: flex;
+        flex-direction: row;
+        margin: 2%;
+        margin-top: 6%;
+        margin-left: 5%;
+        margin-right: 5%;
+    }
+
+    .groupSub1 {
+        width: 100%;
+        height: 100%;
+        padding-right: 3%;
+        padding-left: 3%;
+    }
+
+    .SubAbvTextInSub {
+        color: #000;
+        text-transform: uppercase;
+        font-size: 12px;
+        font-weight: 600;
+        font-family: "Poppins", Arial, sans-serif;
+        margin-left: 2%;
+    }
+
+    #message {
+        resize: vertical;
+    }
+
+    .groupMsg1 {
+        width: 90%;
+    }
+
+    .teller3 {
+        display: flex;
+        width: 90%;
+        height: 100%;
+        margin: 2%;
+        margin-left: 7%;
+    }
+
+    textarea {
+        border: none;
+        min-height: 80px;
+        max-height: 80px;
+        width: 100%;
+        border-bottom: 1px solid rgba(61, 61, 61, 0.322);
+        padding-left: 3%;
+        padding-top: 3%;
+        padding-right: 3%;
+    }
+
+        textarea:focus {
+            transition: 0.3s;
+            border: none;
+            outline: none;
+            border-bottom: 1px solid rgba(41, 41, 41, 0.692);
+        }
+
+    .BtnSend {
+        width: 100%;
+        height: 26%;
+    }
+
+    .teller4 {
+        display: flex;
+        width: 100%;
+        height: 100%;
+    }
+
+    .containerBtn {
+        width: 30%;
+        height: 45%;
+        padding: 5%;
+        padding-left: 8%;
+    }
+
+    .button {
+        background-color: #4a9e53;
+        border: none;
+        color: white;
+        padding: 15px 32px;
+        text-align: center;
+        text-decoration: none;
+        display: inline-block;
+        font-size: 16px;
+        margin: 4px 2px;
+        cursor: pointer;
+        border-radius: 4px;
+    }
+
+        .button:hover {
+            transition: 0.3s;
+            background-color: #56b861;
+        }
+
+        .button:active {
+            transition: 0.2s;
+            background-color: #275c2e;
+        }
+
+
+</style>
+<div class="containerInfo">
+    <div class="placeRest">
+        <div class="leftInfo">
+            <div class="info">
+                <h4 class="Contc">Използвайте следните данни за връзка:</h4>
+                <div class="AdresFlex">
+                    <i class="fa fa-map-marker" style="font-size:30px;"></i>
+                    <p class="Adres">
+                        <span class="spanz">Адрес:</span>
+                        адрес
+                    </p>
+                </div>
+                <div class="Telephone">
+                    <i class="fa fa-phone" style="font-size:30px"></i>
+                    <p class="TelephoneInf">
+                        <span class="spanz">Телефон:</span>
+                        <a href="tel://123411223139" class="telHref">+тел</a>
+                    </p>
+                </div>
+                <div class="Email">
+                    <i class="fa fa-paper-plane" style="font-size: 25px;"></i>
+                    <p class="EmailInfo">
+                        <span class="spanz">Емайл:</span>
+                        <a href="easypzors@gmail.com" class="telHref">email</a>
+                    </p>
+                </div>
+            </div>
+        </div>
+
+        <div class="rightInfo">
+            <div class="fillingInfoCont">
+                <div class="NameInfo">
+                    <div class="teller1">
+                        <div class="group1">
+                            <span class="NameAbvTextInName">трите имена:</span><br>
+                            <input type="text" class="inTextName" placeholder="Име" name="name" id="textCheck2">
+                        </div>
+                        <div class="group2">
+                            <span class="EmailAbvTextInEmail">Емайл:</span>
+                            <input type="text" class="inTextEmail" placeholder="Емайл" name="email" required>
+                        </div>
+                    </div>
+
+                </div>
+
+            </div>
+            <div class="SubInfo">
+                <div class="teller2">
+                    <div class="groupSub1">
+                        <span class="SubAbvTextInSub">Тема:</span>
+                        <input type="text" class="inTextSub" placeholder="Тема">
+                    </div>
+                </div>
+            </div>
+            <div class="MsgInfo">
+                <div class="teller3">
+                    <div class="groupMsg1">
+                        <span class="SubAbvTextInSub">Съобщение:</span>
+                        <textarea name="message" class="form-control" id="message" cols="30" rows="4"
+                                  placeholder="Съобщение"></textarea>
+                    </div>
+                </div>
+            </div>
+            <div class="BtnSend">
+                <div class="teller4">
+                    <div class="containerBtn">
+                        <button class="button" onclick="textCheck()">Изпрати</button>
+                        <p type="submit"></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
