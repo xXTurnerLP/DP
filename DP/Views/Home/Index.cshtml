@@ -1,21 +1,103 @@
 ﻿@{
-	ViewData["Title"] = "Начало";
+    ViewData["Title"] = "Начало";
 }
 <style>
     .durjach {
         justify-content: space-evenly;
         display: flex;
         height: fit-content;
+    }
+
+    .displayRecently {
+        width: 100%;
         background-color: #edffee;
     }
+
+    .img1s {
+        width: 25%;
+        float: left;
+        border: 1px solid green;
+    }
+
+    .topRight {
+        position: relative;
+    }
+
+    * {
+        box-sizing: border-box;
+    }
+
+    .column {
+        float: left;
+        width: 25%;
+        border: 1px solid green;
+        border-left-color: transparent;
+    }
+
+    .row::after {
+        clear: both;
+        display: table;
+    }
+
+    .boxedImg {
+    }
+
+    //https://i.ibb.co/VjLpcKz/5a363ca9045746-2264912215135039130178.png
 </style>
+<center >
+    <span style="border:1px solid black">
+        Наскоро добавени
+    </span>
+</center>
 <div class="durjach">
-    <div class="container"  style="margin-right:8%">
-        <div class="row">
-            <div class="col">col</div>
-            <div class="col">col</div>
-            <div class="col">col</div>
-            <div class="col">col</div>
+
+    <div class="displayRecently">
+        <div class="column">
+            <img src="https://i.ibb.co/VjLpcKz/5a363ca9045746-2264912215135039130178.png" style="width: 56%; ">
+
+            <div style="display: inline-block; text-align: left;">
+                Centered<br />
+                Content<br />
+                That<br />
+                Is<br />
+                Left<br />
+                Aligned
+            </div>
+        </div>
+        <div class="column">
+            <img src="https://i.ibb.co/VjLpcKz/5a363ca9045746-2264912215135039130178.png" class="boxedImg" style="width: 56% ">
+            <div style="display: inline-block; text-align: left;">
+                Centered<br />
+                Content<br />
+                That<br />
+                Is<br />
+                Left<br />
+                Aligned
+            </div>
+        </div>
+        <div class="column">
+            <img src="https://i.ibb.co/VjLpcKz/5a363ca9045746-2264912215135039130178.png" class="boxedImg" style="width: 56% ">
+            <div style="display: inline-block; ">
+                Centered<br />
+                Content<br />
+                That<br />
+                Is<br />
+                Left<br />
+                Aligned
+            </div>
+        </div>
+        <div class="column">
+            <img src="https://i.ibb.co/VjLpcKz/5a363ca9045746-2264912215135039130178.png" class="boxedImg" style="width: 56% ">
+            <div style="display: inline-block; text-align: left;">
+                Centered<br />
+                Content<br />
+                That<br />
+                Is<br />
+                Left<br />
+                Aligned
+            </div>
         </div>
     </div>
+
+</div>
 </div>
