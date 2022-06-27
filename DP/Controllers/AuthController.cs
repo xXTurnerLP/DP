@@ -11,11 +11,15 @@ using System.Collections.ObjectModel;
 using System.Security.Cryptography;
 using DP.Models;
 using System;
+using Microsoft.AspNetCore.Http;
+using System.Web;
 
 namespace DP.Controllers
 {
 	public class AuthController : Controller
 	{
+		const string salt = "salt1337ASJKHD";
+
 		readonly ApplicationContext database;
 		readonly string m_RootPassword;
 
@@ -39,7 +43,93 @@ namespace DP.Controllers
 		[HttpGet]
 		public IActionResult RootLogin()
 		{
-			return View("RootLoginPartial");
+			return View("RootLogin");
+		}
+
+		[HttpGet]
+		public IActionResult Login()
+		{
+			return View("NormalUser/Login");
+		}
+
+		[HttpGet]
+		public IActionResult Register()
+		{
+			return View("NormalUser/Register");
+		}
+
+		[HttpPost]
+		public IActionResult Login(string email, string password, string remember)
+		{
+			bool doRemember = remember == "on";
+
+			User user = database.Users.FirstOrDefault(u => u.Email == email);
+
+			if (user == null)
+			{
+				ViewData["message"] = "Не съществува акаунт с такъв имейл адрес!";
+				ViewData["view"] = "NormalUser/Login";
+				return View("Error");
+			}
+			else
+			{
+				if (user.Password != sha256_hash($"{email}{salt}{password}"))
+				{
+					ViewData["message"] = "Неправилна парола!";
+					ViewData["view"] = "NormalUser/Login";
+					return View("Error");
+				}
+				else
+				{
+					string sessionId = Request.Cookies["SessionId"];
+
+					string newSessionId = Guid.NewGuid().ToString();
+
+					//System.Web.HttpCookie httpCookie = new HttpCookie();
+
+					CookieOptions cookieOptions = new CookieOptions();
+					cookieOptions.IsEssential = true;
+
+					if (doRemember)
+						cookieOptions.Expires = DateTime.Now.AddDays(365);
+
+					Request.Cookies.Append(new KeyValuePair<string, string>("SessionId", newSessionId));
+				}
+			}
+
+			return View();
+		}
+
+		[HttpPost]
+		public IActionResult Register(string email, string password, string repeatPassword, string remember)
+		{
+			bool doRemember = remember == "on";
+
+			if (database.Users.Any(u => u.Email == email))
+			{
+				ViewData["message"] = "Вече съществува акаунт с този имейл адрес!";
+				ViewData["view"] = "NormalUser/Register";
+				return View("Error");
+			}
+
+			if (password != repeatPassword)
+			{
+				ViewData["message"] = "Паролите не съвпадат!";
+				ViewData["view"] = "NormalUser/Register";
+				return View("Error");
+			}
+
+			User user = new User
+			{
+				Email = email,
+				Password = sha256_hash($"{email}{salt}{password}"),
+				Role = "User"
+			};
+
+			database.Users.Add(user);
+			database.SaveChangesAsync();
+
+			return View();
 		}
 
 		[HttpPost]
@@ -48,12 +138,12 @@ namespace DP.Controllers
 			if (rootPassword == m_RootPassword)
 			{
 				ViewData["rootPassword"] = rootPassword;
-				return View("PanelPartial");
+				return View("Panel");
 			}
 			else
 			{
 				ViewData["message"] = "Невалидна парола!";
-				ViewData["view"] = "RootLoginPartial";
+				ViewData["view"] = "RootLogin";
 				return View("Error");
 			}
 		}
@@ -80,7 +170,7 @@ namespace DP.Controllers
 			if (rootPassword != m_RootPassword)
 			{
 				ViewData["message"] = "Невалидна парола!";
-				ViewData["view"] = "RootLoginPartial";
+				ViewData["view"] = "RootLogin";
 				return View("Error");
 			}
 
@@ -89,14 +179,14 @@ namespace DP.Controllers
 			if (password != repeatPassword)
 			{
 				ViewData["message"] = "Паролите не съвпадат!";
-				ViewData["view"] = "PanelPartial";
+				ViewData["view"] = "Panel";
 				return View("Error");
 			}
 
 			if (database.Users.Where(u => u.Email == email).ToArray().Length != 0)
 			{
 				ViewData["message"] = "Вече съществува акаунт с този имейл адрес!";
-				ViewData["view"] = "PanelPartial";
+				ViewData["view"] = "Panel";
 				return View("Error");
 			}
 
@@ -105,7 +195,7 @@ namespace DP.Controllers
 			User user = new User
 			{
 				Email = email,
-				Password = sha256_hash($"{email}salt1337ASJKHD{password}"),
+				Password = sha256_hash($"{email}{salt}{password}"),
 				Role = isAdminBool ? "Admin" : "User"
 			};
 
@@ -113,7 +203,7 @@ namespace DP.Controllers
 			database.SaveChangesAsync();
 
 			ViewData["message"] = isAdminBool ? "Успешно създаден администраторски акаунт!" : "Успешно създаден акаунт!";
-			ViewData["view"] = "PanelPartial";
+			ViewData["view"] = "Panel";
 			return View("Success");
 		}
 	}
