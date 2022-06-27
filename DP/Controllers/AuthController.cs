@@ -82,22 +82,32 @@ namespace DP.Controllers
 				else
 				{
 					string sessionId = Request.Cookies["SessionId"];
-
 					string newSessionId = Guid.NewGuid().ToString();
 
-					//System.Web.HttpCookie httpCookie = new HttpCookie();
-
-					CookieOptions cookieOptions = new CookieOptions();
-					cookieOptions.IsEssential = true;
+					CookieOptions cookieOptions = new CookieOptions
+					{
+						IsEssential = true
+					};
 
 					if (doRemember)
 						cookieOptions.Expires = DateTime.Now.AddDays(365);
 
-					Request.Cookies.Append(new KeyValuePair<string, string>("SessionId", newSessionId));
+					if (sessionId != string.Empty)
+					{
+						Session oldSession = database.Sessions.FirstOrDefault(s => s.SessionId == sessionId);
+
+						if (oldSession != null)
+							database.Sessions.Remove(oldSession);
+					}
+
+					database.Sessions.Add(new Session { SessionId = newSessionId, Account = user });
+					database.SaveChangesAsync();
+
+					Response.Cookies.Delete("SessionId");
+					Response.Cookies.Append("SessionId", newSessionId, cookieOptions);
+					return Redirect("/");
 				}
 			}
-
-			return View();
 		}
 
 		[HttpPost]
@@ -127,9 +137,33 @@ namespace DP.Controllers
 			};
 
 			database.Users.Add(user);
+
+			string sessionId = Request.Cookies["SessionId"];
+			string newSessionId = Guid.NewGuid().ToString();
+
+			CookieOptions cookieOptions = new CookieOptions
+			{
+				IsEssential = true
+			};
+
+			if (doRemember)
+				cookieOptions.Expires = DateTime.Now.AddDays(365);
+
+			if (sessionId != string.Empty)
+			{
+				Session oldSession = database.Sessions.FirstOrDefault(s => s.SessionId == sessionId);
+
+				if (oldSession != null)
+					database.Sessions.Remove(oldSession);
+			}
+
+			database.Sessions.Add(new Session { SessionId = newSessionId, Account = user });
 			database.SaveChangesAsync();
 
-			return View();
+			Response.Cookies.Delete("SessionId");
+			Response.Cookies.Append("SessionId", newSessionId, cookieOptions);
+
+			return Redirect("/");
 		}
 
 		[HttpPost]
