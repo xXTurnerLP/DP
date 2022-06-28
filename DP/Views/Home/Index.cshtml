@@ -10,13 +10,14 @@
 
     .displayRecently {
         width: 100%;
-        background-color: #edffee;
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
     }
 
     .img1s {
         width: 25%;
         float: left;
-        border: 1px solid green;
     }
 
     .topRight {
@@ -29,9 +30,17 @@
 
     .column {
         float: left;
-        width: 25%;
-        border: 1px solid green;
+        width: 24%;
+        background-color: #f2fff2;
         border-left-color: transparent;
+        padding: 1%;
+        box-shadow: 1px 5px 5px 1px gray;
+        margin: 0.2%;
+        border-radius: 2px;
+        border: 3px solid green;
+        border-top-color: transparent;
+        border-left-color: transparent;
+        border-right-color: transparent;
     }
 
     .row::after {
@@ -42,62 +51,69 @@
     .boxedImg {
     }
 
-    //https://i.ibb.co/VjLpcKz/5a363ca9045746-2264912215135039130178.png
+    .cenaProd{
+        background-color:aquamarine;
+        height:25px;
+
+    }
+
+    .boxed {
+        display: flex;
+        flex-direction: column;
+    }
+            //https://i.ibb.co/VjLpcKz/5a363ca9045746-2264912215135039130178.png
 </style>
-<center >
-    <span style="border:1px solid black">
-        Наскоро добавени
-    </span>
-</center>
+
 <div class="durjach">
 
     <div class="displayRecently">
         <div class="column">
-            <img src="https://i.ibb.co/VjLpcKz/5a363ca9045746-2264912215135039130178.png" style="width: 56%; ">
-
-            <div style="display: inline-block; text-align: left;">
-                Centered<br />
-                Content<br />
-                That<br />
-                Is<br />
-                Left<br />
-                Aligned
+            <img src="https://i.ibb.co/VjLpcKz/5a363ca9045746-2264912215135039130178.png" style="width: 40%; height: 20%; padding: 1.5%; margin: 3%; float: left ">
+            <div class="boxed">
+                <div style="text-align:left; display:inline-block; ">
+                    <div class="cenaProd"> <span style="color: #00000f; font-family:Cambria; font-weight:700; font-size:1.05em">ЦЕНА:</span> 650 000лв.</div>
+                </div>
+                <div style="overflow: hidden; word-break: break-all;"><span style="color: #00000f; font-family:Cambria; font-weight:700; font-size:1.05em">ГРАД/:</span></div>
+                <div style="overflow: hidden; word-break: break-all;"><span style="color: #00000f; font-family:Cambria; font-weight:700; font-size:1.05em">УЛИЦА:</span> ул. Еди си коя сasdasdasasdasdsadsadadssaddasdasdasdasdadsasdasdasdasи</div>
+                <div style="overflow: hidden; word-break: break-all;"><span style="color: #00000f; font-family:Cambria; font-weight:700; font-size:1.05em">ОПИСАНИЕ:</span> асдасдасдасдасдасдсададсадасддсадсасдасд</div>
             </div>
+            <div style="text-align:right; font-size:0.766em;font-family:Arial">добавено на: 28.06.2022</div>
         </div>
         <div class="column">
-            <img src="https://i.ibb.co/VjLpcKz/5a363ca9045746-2264912215135039130178.png" class="boxedImg" style="width: 56% ">
-            <div style="display: inline-block; text-align: left;">
-                Centered<br />
-                Content<br />
-                That<br />
-                Is<br />
-                Left<br />
-                Aligned
+            <img src="https://i.ibb.co/VjLpcKz/5a363ca9045746-2264912215135039130178.png" class="boxedImg" style="width: 40%; height: 20%; padding: 1.5%; margin: 3%; float: left ">
+            <div class="boxed">
+                <div style="text-align:left; display:inline-block; ">
+                    <div class="cenaProd"> <span style="color: #00000f; font-family:Cambria; font-weight:700; font-size:1.05em">ЦЕНА:</span> 650 000лв.</div>
+                </div>
+                <div style="overflow: hidden; word-break: break-all;"><span style="color: #00000f; font-family:Cambria; font-weight:700; font-size:1.05em">ГРАД/:</span></div>
+                <div style="overflow: hidden; word-break: break-all;"><span style="color: #00000f; font-family:Cambria; font-weight:700; font-size:1.05em">УЛИЦА:</span> ул. Еди си коя сasdasdasasdasdsadsadadssaddasdasdasdasdadsasdasdasdasи</div>
+                <div style="overflow: hidden; word-break: break-all;"><span style="color: #00000f; font-family:Cambria; font-weight:700; font-size:1.05em">ОПИСАНИЕ:</span> асдасдасдасдасдасдсададсадасддсадсасдасд</div>
             </div>
+            <div style="text-align:right; font-size:0.766em;font-family:Arial">добавено на: 28.06.2022</div>
         </div>
         <div class="column">
-            <img src="https://i.ibb.co/VjLpcKz/5a363ca9045746-2264912215135039130178.png" class="boxedImg" style="width: 56% ">
-            <div style="display: inline-block; ">
-                Centered<br />
-                Content<br />
-                That<br />
-                Is<br />
-                Left<br />
-                Aligned
+            <img src="https://i.ibb.co/VjLpcKz/5a363ca9045746-2264912215135039130178.png" class="boxedImg" style="width: 40%; height: 20%; padding: 1.5%; margin: 3%; float: left ">
+            <div class="boxed">
+                <div style="text-align:left; display:inline-block; ">
+                    <div class="cenaProd"> <span style="color: #00000f; font-family:Cambria; font-weight:700; font-size:1.05em">ЦЕНА:</span> 650 000лв.</div>
+                </div>
+                <div style="overflow: hidden; word-break: break-all;"><span style="color: #00000f; font-family:Cambria; font-weight:700; font-size:1.05em">ГРАД/:</span></div>
+                <div style="overflow: hidden; word-break: break-all;"><span style="color: #00000f; font-family:Cambria; font-weight:700; font-size:1.05em">УЛИЦА:</span> ул. Еди си коя сasdasdasasdasdsadsadadssaddasdasdasdasdadsasdasdasdasи</div>
+                <div style="overflow: hidden; word-break: break-all;"><span style="color: #00000f; font-family:Cambria; font-weight:700; font-size:1.05em">ОПИСАНИЕ:</span> асдасдасдасдасдасдсададсадасддсадсасдасд</div>
             </div>
+            <div style="text-align:right; font-size:0.766em;font-family:Arial">добавено на: 28.06.2022</div>
         </div>
         <div class="column">
-            <img src="https://i.ibb.co/VjLpcKz/5a363ca9045746-2264912215135039130178.png" class="boxedImg" style="width: 56% ">
-            <div style="display: inline-block; text-align: left;">
-                Centered<br />
-                Content<br />
-                That<br />
-                Is<br />
-                Left<br />
-                Aligned
+            <img src="https://i.ibb.co/VjLpcKz/5a363ca9045746-2264912215135039130178.png" class="boxedImg" style="width: 40%; height: 20%; padding: 1.5%; margin: 3%; float: left">
+            <div class="boxed">
+                <div style="text-align:left; display:inline-block; ">
+                    <div class="cenaProd"> <span style="color: #00000f; font-family:Cambria; font-weight:700; font-size:1.05em">ЦЕНА:</span> 650 000лв.</div>
+                </div>
+                <div style="overflow: hidden; word-break: break-all;"><span style="color: #00000f; font-family:Cambria; font-weight:700; font-size:1.05em">ГРАД/:</span></div>
+                <div style="overflow: hidden; word-break: break-all;"><span style="color: #00000f; font-family:Cambria; font-weight:700; font-size:1.05em">УЛИЦА:</span> ул. Еди си коя сasdasdasasdasdsadsadadssaddasdasdasdasdadsasdasdasdasи</div>
+                <div style="overflow: hidden; word-break: break-all;"><span style="color: #00000f; font-family:Cambria; font-weight:700; font-size:1.05em">ОПИСАНИЕ:</span> асдасдасдасдасдасдсададсадасддсадсасдасд</div>
+            </div>
+            <div style="text-align:right; font-size:0.766em;font-family:Arial">добавено на: 28.06.2022</div>
             </div>
         </div>
-    </div>
-
-</div>
 </div>

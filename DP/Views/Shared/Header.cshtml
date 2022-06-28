@@ -1,5 +1,16 @@
 ﻿<div style="width: 100%; border: 2px solid green; position: sticky; top: 0; z-index:999 "></div>
-<header style="height:fit-content; margin-bottom:2%">
+<style>
+    #btns1 {
+        border-radius: 5px;
+        transition: ease-in 0.55s;
+    }
+        #btns1:hover {
+            background-color: #e9ffe3;
+            transition: ease-in 0.55s;
+            transform: rotate(20deg);
+        }
+</style>
+<header style="height:fit-content; margin-bottom:3%">
     <div class="position-relative" style=" display: flex; height: 25px; margin-top: 0.5%">
         
         <div class="container" style="">
@@ -11,11 +22,11 @@
                 </div>
 
                 <div class="container position-absolute top-0 start-50 translate-middle-x row row-cols-auto" style="margin-top: 0.3%; border: 3px solid green; border-radius: 4px; border-top-color: transparent; border-bottom-color: transparent; box-shadow: 1px 5px 5px 1px #a6a6a6 ">
-                    <div class="col "><a class="nav-link active" aria-current="page" href="/" style="color: black; font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif; font-weight: 700">Начало</a></div>
-                    <div class="col "><a class="nav-link" asp-controller="Offers" href="/Offers"  style="color: black; font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif; font-weight: 700">Оферти</a></div>
-                    <div class="col "><a class="nav-link" asp-area="" asp-controller="Top" href="/Top"  style="color: black; font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif; font-weight: 700">Топ Предложения</a></div>
-                    <div class="col "><a class="nav-link" asp-area="" asp-controller="About" href="/About"  style="color: black; font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif; font-weight: 700">За нас</a></div>
-                    <div class="col "><a class="nav-link" asp-area="" asp-controller="Contacts" href="/Contacts"  style="color:black; font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif; font-weight:700">Контакти</a></div>
+                    <div id="btns1" class="col "><a class="nav-link active" aria-current="page" href="/" style="color: black; font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif; font-weight: 700">Начало</a></div>
+                    <div id="btns1"class="col "><a class="nav-link" asp-controller="Offers" href="/Offers"  style="color: black; font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif; font-weight: 700">Оферти</a></div>
+                    <div id="btns1"class="col "><a class="nav-link" asp-area="" asp-controller="Top" href="/Top"  style="color: black; font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif; font-weight: 700">Топ Предложения</a></div>
+                    <div id="btns1"class="col "><a class="nav-link" asp-area="" asp-controller="About" href="/About"  style="color: black; font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif; font-weight: 700">За нас</a></div>
+                    <div id="btns1"class="col "><a class="nav-link" asp-area="" asp-controller="Contacts" href="/Contacts"  style="color:black; font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif; font-weight:700">Контакти</a></div>
                 </div>
 
                 <!-- Register / Login -->
