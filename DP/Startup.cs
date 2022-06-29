@@ -40,6 +40,8 @@ namespace DP
 				app.UseDeveloperExceptionPage();
 			}
 
+			app.UseStaticFiles();
+
 			app.UseRouting();
 
 			app.UseAuthentication();
