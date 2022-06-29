@@ -21,11 +21,15 @@ namespace DP.Controllers
 		const string salt = "salt1337ASJKHD";
 
 		readonly ApplicationContext database;
+		readonly DbCache dbCache;
 		readonly string m_RootPassword;
 
 		public AuthController(DbContextOptions options)
 		{
 			database = new ApplicationContext(options);
+			dbCache = new DbCache();
+			dbCache.sessions = database.Sessions.ToList();
+			dbCache.users = database.Users.ToList();
 
 			IConfigurationRoot configuration = new ConfigurationBuilder()
 				.SetBasePath(AppDomain.CurrentDomain.BaseDirectory)
@@ -43,19 +47,26 @@ namespace DP.Controllers
 		[HttpGet]
 		public IActionResult RootLogin()
 		{
-			return View("RootLogin");
+			return View("RootLogin", dbCache);
 		}
 
 		[HttpGet]
 		public IActionResult Login()
 		{
-			return View("NormalUser/Login");
+			return View("NormalUser/Login", dbCache);
+		}
+
+		[HttpGet]
+		public IActionResult Logout()
+		{
+			Response.Cookies.Delete("SessionId");
+			return Redirect("/");
 		}
 
 		[HttpGet]
 		public IActionResult Register()
 		{
-			return View("NormalUser/Register");
+			return View("NormalUser/Register", dbCache);
 		}
 
 		[HttpPost]
@@ -69,7 +80,7 @@ namespace DP.Controllers
 			{
 				ViewData["message"] = "Не съществува акаунт с такъв имейл адрес!";
 				ViewData["view"] = "NormalUser/Login";
-				return View("Error");
+				return View("Error", dbCache);
 			}
 			else
 			{
@@ -77,7 +88,7 @@ namespace DP.Controllers
 				{
 					ViewData["message"] = "Неправилна парола!";
 					ViewData["view"] = "NormalUser/Login";
-					return View("Error");
+					return View("Error", dbCache);
 				}
 				else
 				{
@@ -119,14 +130,14 @@ namespace DP.Controllers
 			{
 				ViewData["message"] = "Вече съществува акаунт с този имейл адрес!";
 				ViewData["view"] = "NormalUser/Register";
-				return View("Error");
+				return View("Error", dbCache);
 			}
 
 			if (password != repeatPassword)
 			{
 				ViewData["message"] = "Паролите не съвпадат!";
 				ViewData["view"] = "NormalUser/Register";
-				return View("Error");
+				return View("Error", dbCache);
 			}
 
 			User user = new User
@@ -172,13 +183,13 @@ namespace DP.Controllers
 			if (rootPassword == m_RootPassword)
 			{
 				ViewData["rootPassword"] = rootPassword;
-				return View("Panel");
+				return View("Panel", dbCache);
 			}
 			else
 			{
 				ViewData["message"] = "Невалидна парола!";
 				ViewData["view"] = "RootLogin";
-				return View("Error");
+				return View("Error", dbCache);
 			}
 		}
 
@@ -205,7 +216,7 @@ namespace DP.Controllers
 			{
 				ViewData["message"] = "Невалидна парола!";
 				ViewData["view"] = "RootLogin";
-				return View("Error");
+				return View("Error", dbCache);
 			}
 
 			bool isAdminBool = isAdmin == "on";
@@ -214,14 +225,14 @@ namespace DP.Controllers
 			{
 				ViewData["message"] = "Паролите не съвпадат!";
 				ViewData["view"] = "Panel";
-				return View("Error");
+				return View("Error", dbCache);
 			}
 
 			if (database.Users.Where(u => u.Email == email).ToArray().Length != 0)
 			{
 				ViewData["message"] = "Вече съществува акаунт с този имейл адрес!";
 				ViewData["view"] = "Panel";
-				return View("Error");
+				return View("Error", dbCache);
 			}
 
 			SHA256 sha256 = SHA256.Create();
@@ -238,7 +249,7 @@ namespace DP.Controllers
 
 			ViewData["message"] = isAdminBool ? "Успешно създаден администраторски акаунт!" : "Успешно създаден акаунт!";
 			ViewData["view"] = "Panel";
-			return View("Success");
+			return View("Success", dbCache);
 		}
 	}
 }
