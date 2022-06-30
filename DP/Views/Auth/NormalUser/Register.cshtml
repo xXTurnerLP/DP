@@ -1,15 +1,21 @@
 ﻿<form action="Register" method="post">
-	<label for="email">Имейл адрес</label>
-	<input type="email" id="email" name="email">
+    <div id="boxContainer">
+        <div id="borderReg">
+            <label for="email">Имейл адрес</label>
+            <br />
+            <input type="email" id="email" name="email">
+            <br />
+            <label for="password">Парола</label>
+            <br />
+            <input type="password" id="password" name="password">
+            <br />
+            <label for="repeatPassword">Повторете парола</label>
+            <br />
+            <input type="password" id="repeatPassword" name="repeatPassword">
+            <br />
 
-	<label for="password">Парола</label>
-	<input type="password" id="password" name="password">
-	
-	<label for="repeatPassword">Повторете парола</label>
-	<input type="password" id="repeatPassword" name="repeatPassword">
-
-	<label for="remember">Остани влязъл</label>
-	<input type="checkbox" id="remember" name="remember">
-
-	<input type="submit" value="Регистрирай се" />
+            <label class="lblText"><input type="checkbox" id="remember" name="remember" class="chkbox1">Остани влязъл</label>
+            <input type="submit" value="Регистрирай се" />
+        </div>
+    </div>
 </form>

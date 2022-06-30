@@ -1,0 +1,73 @@
+﻿#backgroundMain {
+    margin-top: 2%;
+    width: 100%;
+    height: fit-content;
+    
+}
+
+#whyForU {
+    margin-left: 25%;
+    margin-right: 25%;
+    background-color: #d9ded7;
+    padding: 2.5%;
+    box-shadow: 1px 5px 5px 1px gray;
+    border: 5px solid #b7bfb4;
+}
+
+#moreInfoForU{
+    margin-right:30%;
+    font-size:1.02em;
+    font-weight:500;
+}
+
+
+#whyForUText {
+    font-family: Calibri;
+    font-size: 1.6em;
+    font-weight: 600;
+    color: #2c2e2c;
+}
+
+#lineHR {
+    border-top: 2px solid black;
+}
+
+
+#firstForUtext {
+    font-weight: bold;
+}
+
+#secondForUtext {
+    color: darkcyan;
+}
+
+#boxContainer {
+    width: 100%;
+    height: 300px;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    align-content: center;
+    justify-content: center;
+    align-items: center;
+}
+
+
+.lblText {
+    display: block;
+    padding-left: 15px;
+    text-indent: -15px;
+}
+
+.chkbox1 {
+    width: 13px;
+    height: 15px;
+    vertical-align: bottom;
+    position: relative;
+    top: -1px;
+    *overflow: hidden;
+}
+
+#borderReg{
+
+}
