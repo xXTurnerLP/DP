@@ -1,5 +1,28 @@
-﻿@{ 
+﻿@model DP.Models.Auth.DbCache
+
+@{
 	ViewData["Title"] = "За нас";
+}
+
+@{
+	string sessionId = Context.Request.Cookies["SessionId"];
+
+	bool potentialEmpty = false;
+
+	if (sessionId == string.Empty || !Model.sessions.Any(s => s.SessionId == sessionId))
+	{
+		potentialEmpty = true;
+	}
+	else
+	{
+		bool isAdmin = Model.sessions.FirstOrDefault(s => s.SessionId == sessionId)?.Account?.Role == "Admin";
+
+		if (isAdmin)
+		{
+			// Edit button here
+			<a href="About/Edit">replace me with button</a>
+		}
+	}
 }
 
 За нас:
