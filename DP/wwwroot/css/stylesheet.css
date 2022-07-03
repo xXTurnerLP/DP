@@ -82,3 +82,17 @@
     color: #fff;
     bottom:0;
 }
+
+.btnEdit{
+    border:1px solid black;
+    font-size:1.5em;
+    padding:0.1%;
+    font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    text-decoration:none;
+    margin-left:1%;
+    color:black;
+}
+
+.btnEdit:hover{
+    color:green;
+}
