@@ -9,9 +9,11 @@
     margin-left: 25%;
     margin-right: 25%;
     background-color: #d9ded7;
-    padding: 2.5%;
+    padding: 2%;
+    padding-right: 5%;
+    padding-left: 5%;
     box-shadow: 1px 5px 5px 1px gray;
-    border: 5px solid #b7bfb4;
+    border: 3px solid #b7bfb4;
 }
 
 #moreInfoForU{
@@ -70,4 +72,13 @@
 
 #borderReg{
 
+}
+
+.footer11 {
+    display: flex;
+    justify-content: center;
+    padding: 5px;
+    background-color: forestgreen;
+    color: #fff;
+    bottom:0;
 }
