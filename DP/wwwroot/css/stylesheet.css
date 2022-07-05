@@ -179,3 +179,45 @@
         border-right-color: transparent;
         color: white;
     }
+
+.btnNinfoholder {
+    position:static;
+    bottom: 0px;
+    position:absolute;
+    bottom:5%;
+}
+
+.infoStatusBuild {
+    display: flex;
+    align-items: center;
+    text-align: right;
+    font-size: 1.01em;
+    font-family: Arial;
+    font-weight: bold;
+    max-height: 80px;
+    bottom: 0px;
+}
+
+.infoStatusBuildTxtReserved {
+    border: 1px solid black;
+    padding: 0.3%;
+    background-color: #fcc483;
+}
+
+.infoStatusBuildTxtAvailable {
+    border: 1px solid black;
+    padding: 0.3%;
+    background-color: #94fa5c;
+}
+
+.infoStatusBuildTxtSold {
+    border: 1px solid black;
+    padding: 0.3%;
+    background-color: #8c9596;
+}
+
+#comunSize{
+    max-height:325px;
+    min-height:325px;
+    position:relative;
+}
