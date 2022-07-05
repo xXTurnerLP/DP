@@ -81,6 +81,7 @@
     background-color: forestgreen;
     color: #fff;
     bottom:0;
+
 }
 
 .btnEdit{
@@ -94,5 +95,87 @@
 }
 
 .btnEdit:hover{
-    color:green;
+    color:white;
+    background-color:black;
+
 }
+
+
+.btnEdit1 {
+    border: 1px solid black;
+    font-size: 1.5em;
+    padding: 0.1%;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    text-decoration: none;
+    margin-left: 1%;
+    color: black;
+}
+
+
+.btnEdit2 {
+    border: 1px solid black;
+    font-size: 1.5em;
+    padding: 0.1%;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    text-decoration: none;
+    margin-left: 1%;
+    color: black;
+}
+
+.btnEdit1:hover {
+    color: white;
+    background-color: green;
+    border-color: green;
+}
+
+.btnEdit2:hover {
+    color: white;
+    background-color: red;
+    border-color: red;
+}
+.txtBold{
+    font-weight:bold;
+}
+
+.addBtnMain {
+   margin:1.1%;
+    text-align: center;
+    font-weight: bolder;
+    display: flex;
+    justify-content: center;
+}
+
+.addBtnMainEffects {
+    display: flex;
+    justify-content: center;
+    border: 2px solid green;
+    border-top-color: transparent;
+    border-left-color: transparent;
+    border-right-color: transparent;
+    text-decoration: none;
+    font-weight: bolder;
+    color: black;
+    font-size: 2.1em;
+    align-items: center;
+    border-radius: 3px;
+    font-family: Calibri;
+    box-shadow: 2px 5px 5px 2px gray;
+}
+
+    .addBtnMainEffects:hover {
+        background-color: green;
+        border-color: white;
+        border-top-color: transparent;
+        border-left-color: transparent;
+        border-right-color: transparent;
+        color: white;
+    }
+
+    .addBtnMainEffects:active {
+        background-color: seagreen;
+        border-color: white;
+        border-top-color: transparent;
+        border-left-color: transparent;
+        border-right-color: transparent;
+        color: white;
+    }
