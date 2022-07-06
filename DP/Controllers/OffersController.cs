@@ -1,17 +1,20 @@
 ﻿using DP.Models;
 using DP.Models.Auth;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 
 namespace DP.Controllers
 {
-    public class OffersController : Controller
-    {
+	public class OffersController : Controller
+	{
 		readonly ApplicationContext database;
 		readonly DbCache dbCache;
 
@@ -34,6 +37,43 @@ namespace DP.Controllers
 		public IActionResult CreateOffer()
 		{
 			return View("Create", dbCache);
+		}
+
+		[HttpPost]
+		public void CreateOffer(float price, string city, string street, string description, string state, IFormFile img)
+		{
+			string sessionId = Request.Cookies["SessionId"];
+			if (sessionId == string.Empty)
+			{
+				Response.Redirect("/Offers");
+			}
+
+			var session = database.Sessions.FirstOrDefault(s => s.SessionId == sessionId);
+
+			if (session == null || session.Account.Role != "Admin")
+			{
+				Response.Redirect("/Offers");
+			}
+
+			var guid = Guid.NewGuid();
+			var stream = img.OpenReadStream();
+			byte[] bytes = new byte[stream.Length];
+			stream.Read(bytes, 0, (int)stream.Length);
+
+			Offer offer = new Offer()
+			{
+				Price = price,
+				City = city,
+				Street = street,
+				Description = description,
+				State = state,
+				Base64Img = Convert.ToBase64String(bytes)
+			};
+
+			database.Offers.Add(offer);
+			database.SaveChanges();
+
+			Response.Redirect("/Offers");
 		}
 	}
 }
