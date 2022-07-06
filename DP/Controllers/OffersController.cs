@@ -21,12 +21,19 @@ namespace DP.Controllers
 			dbCache = new DbCache();
 			dbCache.sessions = database.Sessions.ToList();
 			dbCache.users = database.Users.ToList();
+			dbCache.offers = database.Offers.ToList();
 		}
 
 		[HttpGet]
 		public IActionResult Index()
 		{
 			return View("Index", dbCache);
+		}
+
+		[HttpGet]
+		public IActionResult CreateOffer()
+		{
+			return View("Create", dbCache);
 		}
 	}
 }

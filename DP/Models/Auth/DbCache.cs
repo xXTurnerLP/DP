@@ -10,5 +10,6 @@ namespace DP.Models.Auth
     {
         public List<User> users;
         public List<Session> sessions;
+        public List<Offer> offers;
     }
 }

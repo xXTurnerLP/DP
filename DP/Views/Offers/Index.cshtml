@@ -1,178 +1,151 @@
-﻿@{
-    ViewData["Title"] = "Оферти";
+﻿@model DP.Models.Auth.DbCache
+
+@{
+	ViewData["Title"] = "Оферти";
 }
 <style>
-    .durjach {
-        justify-content: space-evenly;
-        display: flex;
-        height: fit-content;
-    }
+	.durjach {
+		justify-content: space-evenly;
+		display: flex;
+		height: fit-content;
+	}
 
-    .displayRecently {
-        width: 100%;
-        display: flex;
-        align-items: center;
-        flex-wrap: wrap;
-    }
+	.displayRecently {
+		width: 100%;
+		display: flex;
+		align-items: center;
+		flex-wrap: wrap;
+	}
 
-    .img1s {
-        width: 25%;
-        float: left;
-    }
+	.img1s {
+		width: 25%;
+		float: left;
+	}
 
-    .topRight {
-        position: relative;
-    }
+	.topRight {
+		position: relative;
+	}
 
-    * {
-        box-sizing: border-box;
-    }
+	* {
+		box-sizing: border-box;
+	}
 
-    .column {
-        float: left;
-        width: 24%;
-        background-color: #f7fff5;
-        border-left-color: transparent;
-        padding: 1%;
-        box-shadow: 1px 5px 5px 1px gray;
-        margin: 0.2%;
-        border-radius: 2px;
-        border: 3px solid green;
-        border-top-color: transparent;
-        border-left-color: transparent;
-        border-right-color: transparent;
-    }
+	.column {
+		float: left;
+		width: 24%;
+		background-color: #f7fff5;
+		border-left-color: transparent;
+		padding: 1%;
+		box-shadow: 1px 5px 5px 1px gray;
+		margin: 0.2%;
+		border-radius: 2px;
+		border: 3px solid green;
+		border-top-color: transparent;
+		border-left-color: transparent;
+		border-right-color: transparent;
+	}
 
-    .row::after {
-        clear: both;
-        display: table;
-    }
+	.row::after {
+		clear: both;
+		display: table;
+	}
 
-    .boxedImg {
-    }
+	.boxedImg {
+	}
 
-    .cenaProd {
-        background-color: #d8e8d9;
-        height: 25px;
-        border: 2px solid green;
-        border-left-color: transparent;
-        border-top-color: transparent;
-        border-bottom-color: transparent;
-        border-radius:2px;
-    }
+	.cenaProd {
+		background-color: #d8e8d9;
+		height: 25px;
+		border: 2px solid green;
+		border-left-color: transparent;
+		border-top-color: transparent;
+		border-bottom-color: transparent;
+		border-radius: 2px;
+	}
 
-    .boxed {
+	.boxed {
+		display: flex;
+		flex-direction: column;
+	}
 
-        display: flex;
-        flex-direction: column;
-    }
-
-    //https://i.ibb.co/VjLpcKz/5a363ca9045746-2264912215135039130178.png
+	//https://i.ibb.co/VjLpcKz/5a363ca9045746-2264912215135039130178.png
 </style>
 
 
 <center>
-    <div>
-        Промотирани
-    </div>
+	<div>
+		Промотирани
+	</div>
 </center>
 <div class="durjach">
 
-    <div class="displayRecently">
-        <div class="column" id="comunSize">
-            <img src="https://i.ibb.co/VjLpcKz/5a363ca9045746-2264912215135039130178.png" style="width: 40%; height: 20%; padding: 1.5%; margin: 3%; float: left ">
-            <div class="boxed">
-                <div style="text-align:left; display:inline-block; ">
-                    <div class="cenaProd"> <span style="color: #00000f; font-family:Cambria; font-weight:700; font-size:1.05em">ЦЕНА:</span> 650 000лв.</div>
-                </div>
-                <div style="overflow: hidden; word-break: break-all;"><span style="color: #00000f; font-family:Cambria; font-weight:700; font-size:1.05em">ГРАД:</span></div>
-                <div style="overflow: hidden; max-height: 70px;"><span style="color: #00000f; font-family:Cambria; font-weight:700; font-size:1.05em">УЛИЦА:</span> ул. Еди си коя сasdaasdaasdasdsadasdasdadsadasas dadasda asd asd asd asd asd asd as das das dasd 213 123 123sdasddasdasdadasdasdadasdads asd asd as dasd asdsasdasdasdasи</div>
-                <div style="overflow: hidden; inline-size: 100%; max-height:150px; "><span style="color: #00000f; font-family:Cambria; font-weight:700; font-size:1.05em;">ОПИСАНИЕ:</span> abdulah 1231231 asd sad asasdasd  sdas dsad asd asd asd asd as das asd asd sad sad sad sad asd asd sahyd has das dasd as das dasd asd asd sah dsahd hsah dhsad ashd ashd hasdh ashd ashd hashd ashdahdhash dhashd ash dhashd hasd asd asd asd sad asdasd asd asd as das das dsd asd asdsas daass das da123 123 123 123 21 312sdasdasdd as das dasdasasd asdasdsa ggasdasd asdasdasdasgggggggg23ads123123123123GGGGGG as das das das d222222222asds  asd asd asd asd asd asd as das dasdasd asd asd asd asd asd asd sa</div>
-            </div>
-            <div class="btnNinfoholder">
-                <div class="infoStatusBuild">
-                    <span class="infoStatusBuildTxtReserved">Резервирано</span>
-                    <a href="#" style=" width: 33px; text-align:center;" class="btnEdit1">✎</a>
-                    <a href="#" style=" width:33px; text-align:center; " class="btnEdit2">✖</a>
-                </div>
-            </div>
-        </div>
-        <div class="column" id="comunSize">
-            <img src="https://i.ibb.co/VjLpcKz/5a363ca9045746-2264912215135039130178.png" class="boxedImg" style="width: 40%; height: 20%; padding: 1.5%; margin: 3%; float: left ">
-            <div class="boxed">
-                <div style="text-align:left; display:inline-block; ">
-                    <div class="cenaProd"> <span style="color: #00000f; font-family:Cambria; font-weight:700; font-size:1.05em">ЦЕНА:</span> 650 000лв.</div>
-                </div>
-                <div style="overflow: hidden; word-break: break-all;"><span style="color: #00000f; font-family:Cambria; font-weight:700; font-size:1.05em">ГРАД:</span></div>
-                <div style="overflow: hidden; max-height: 70px;"><span style="color: #00000f; font-family:Cambria; font-weight:700; font-size:1.05em">УЛИЦА:</span> ул. Еди си коя сasd adads asdasdasdasdasdasdasdaasdasdasdasd asd asd a3 1123 12 323 123 sdas das sd ad aasd asd asdsasss sssdasи</div>
-                <div style="overflow: hidden; inline-size: 100%; max-height: 150px; "><span style="color: #00000f; font-family:Cambria; font-weight:700; font-size:1.05em;">ОПИСАНИЕ:</span> abdulah 1231231 aasdsd sa dasdsad asdasds sa das das123  213 213 123d asd as asdsdasdasdasd asdasdsa gggggggggg23123123123123GGGGGG asds  asd asd asd asd asd asd as das dasdasd asd asd asd asd asd asd sa</div>
-            </div>
-            <div class="btnNinfoholder">
-                <div class="infoStatusBuild">
-                    <span class="infoStatusBuildTxtAvailable">Налично</span>
-                    <a href="#" style=" width: 33px; text-align:center;" class="btnEdit1">✎</a>
-                    <a href="#" style=" width:33px; text-align:center; " class="btnEdit2">✖</a>
-                </div>
-            </div>
-        </div>
-        <div class="column" id="comunSize">
-            <img src="https://i.ibb.co/VjLpcKz/5a363ca9045746-2264912215135039130178.png" class="boxedImg" style="width: 40%; height: 20%; padding: 1.5%; margin: 3%; float: left ">
-            <div class="boxed">
-                <div style="text-align:left; display:inline-block; ">
-                    <div class="cenaProd"> <span style="color: #00000f; font-family:Cambria; font-weight:700; font-size:1.05em">ЦЕНА:</span> 650 000лв.</div>
-                </div>
-                <div style="overflow: hidden; word-break: break-all;"><span style="color: #00000f; font-family:Cambria; font-weight:700; font-size:1.05em">ГРАД:</span></div>
-                <div style="overflow: hidden; max-height: 70px;"><span style="color: #00000f; font-family:Cambria; font-weight:700; font-size:1.05em">УЛИЦА:</span> ул. Еdasdasи</div>
-                <div style="overflow: hidden; inline-size: 100%; max-height: 150px;"><span style="color: #00000f; font-family:Cambria; font-weight:700; font-size:1.05em;">ОПИСАНИЕ:</span> abdulah 1231231 asd sad asdsdasdasdasd asdasdsa gggggggggg23123123123123GGGGGG asds  asd asd asd asd asd asd as das dasdasd asd asd asd asd asd asd sa</div>
-            </div>
-            <div class="btnNinfoholder">
-                <div class="infoStatusBuild">
-                    <span class="infoStatusBuildTxtAvailable">Налично</span>
-                    <a href="#" style=" width: 33px; text-align:center;" class="btnEdit1">✎</a>
-                    <a href="#" style=" width:33px; text-align:center; " class="btnEdit2">✖</a>
-                </div>
-            </div>
-        </div>
-        <div class="column" id="comunSize">
-            <img src="https://i.ibb.co/VjLpcKz/5a363ca9045746-2264912215135039130178.png" class="boxedImg" style="width: 50%; height: 50%; padding: 1.5%; margin: 3%; float: left">
-            <div class="boxed">
-                <div style="text-align:left; display:inline-block; ">
-                    <div class="cenaProd"> <span style="color: #00000f; font-family:Cambria; font-weight:700; font-size:1.05em">ЦЕНА:</span> 650 000лв.</div>
-                </div>
-                <div style="overflow: hidden; word-break: break-all;"><span style="color: #00000f; font-family:Cambria; font-weight:700; font-size:1.05em">ГРАД:</span></div>
-                <div style="overflow: hidden; max-height: 70px;"><span style="color: #00000f; font-family:Cambria; font-weight:700; font-size:1.05em">УЛИЦА:</span> ул. Еди си коя си</div>
-                <div style="overflow: hidden; inline-size: 100%; max-height: 150px; "><span style="color: #00000f; font-family:Cambria; font-weight:700; font-size:1.05em;">ОПИСАНИЕ:</span> abdulah 1231231 asd sad asdsdasdasdasd asdasdsa gggggggggg23123123123123GGGGGG asds  asd asd asd asd asd asd as das dasdasd asd asd asd asd asd asd sa</div>
-            </div>
-            <div class="btnNinfoholder">
-                <div class="infoStatusBuild">
-                    <span class="infoStatusBuildTxtSold">Продадено</span>
-                    <a href="#" style=" width: 33px; text-align:center;" class="btnEdit1">✎</a>
-                    <a href="#" style=" width:33px; text-align:center; " class="btnEdit2">✖</a>
-                </div>
-            </div>
-        </div>
-        <div class="column" id="comunSize">
+	@{bool isAdmin = false;}
 
-            <img src="https://i.ibb.co/VjLpcKz/5a363ca9045746-2264912215135039130178.png" class="boxedImg" style="width: 40%; height: 20%; padding: 1.5%; margin: 3%; float: left">
-            <div class="boxed">
-                <div style="text-align:left; display:inline-block; ">
-                    <div class="cenaProd"> <span style="color: #00000f; font-family:Cambria; font-weight:700; font-size:1.05em">ЦЕНА:</span> 650 000лв.</div>
-                </div>
-                <div style="overflow: hidden; word-break: break-all;"><span style="color: #00000f; font-family:Cambria; font-weight:700; font-size:1.05em">ГРАД:</span></div>
-                <div style="overflow: hidden; max-height: 70px;"><span style="color: #00000f; font-family:Cambria; font-weight:700; font-size:1.05em">УЛИЦА:</span> ул. Еди си коя сasdasdaasdadsasdasdasdasи</div>
-                <div style="overflow: hidden; inline-size: 100%; max-height: 150px;"><span style="color: #00000f; font-family:Cambria; font-weight:700; font-size:1.05em;">ОПИСАНИЕ:</span> abdulah 1231231 asd sad asdsdasdasdasd asdasdsa gggggggggg23123123123123GGGGGG asds  asd asd asd asd asd asd as das dasdasd asd asd asd asd asd asd sa</div>
-            </div>
-            <div class="btnNinfoholder">
-                <div class="infoStatusBuild">
-                    <span class="infoStatusBuildTxtReserved">Резервирано</span>
-                    <a href="#" style=" width: 33px; text-align:center;" class="btnEdit1">✎</a>
-                    <a href="#" style=" width:33px; text-align:center; " class="btnEdit2">✖</a>
-                </div>
-            </div>
-        </div>
-    </div>
+	@{
+		string sessionId = Context.Request.Cookies["SessionId"];
 
+		bool potentialEmpty = false;
+
+		if (sessionId == string.Empty || !Model.sessions.Any(s => s.SessionId == sessionId))
+		{
+			potentialEmpty = true;
+		}
+		else
+		{
+			isAdmin = Model.sessions.FirstOrDefault(s => s.SessionId == sessionId)?.Account?.Role == "Admin";
+		}
+	}
+
+	@{
+		foreach (var offer in Model.offers)
+		{
+			<div class="displayRecently">
+				<div class="column" id="comunSize">
+					<img src="data:image/png;base64,@($"{offer.Base64Img}")" style="width: 40%; height: 20%; padding: 1.5%; margin: 3%; float: left ">
+					<div class="boxed">
+						<div style="text-align:left; display:inline-block; ">
+							<div class="cenaProd"> <span style="color: #00000f; font-family:Cambria; font-weight:700; font-size:1.05em">ЦЕНА:</span> @($"{offer.Price:0.00}") лв.</div>
+						</div>
+						<div style="overflow: hidden; word-break: break-all;"><span style="color: #00000f; font-family:Cambria; font-weight:700; font-size:1.05em">ГРАД: </span>@($"{offer.City}")</div>
+						<div style="overflow: hidden; max-height: 70px;"><span style="color: #00000f; font-family:Cambria; font-weight:700; font-size:1.05em">УЛИЦА: </span>@($"{offer.Street}")</div>
+						<div style="overflow: hidden; inline-size: 100%; max-height:150px; "><span style="color: #00000f; font-family:Cambria; font-weight:700; font-size:1.05em;">ОПИСАНИЕ: </span>@($"{offer.Description}")</div>
+					</div>
+					<div class="btnNinfoholder">
+						<div class="infoStatusBuild">
+							@{
+								switch (offer.State)
+								{
+									case "reserved":
+										<span class="infoStatusBuildTxtReserved">Резервирано</span>
+										break;
+									case "available":
+										<span class="infoStatusBuildTxtAvailable">Налично</span>
+										break;
+									case "sold":
+										<span class="infoStatusBuildTxtSold">Продадено</span>
+										break;
+								}
+							}
+							@{
+								if (isAdmin)
+								{
+									<a href="#" style=" width: 33px; text-align:center;" class="btnEdit1">✎</a>
+									<a href="#" style=" width:33px; text-align:center; " class="btnEdit2">✖</a>
+								}
+							}
+						</div>
+					</div>
+				</div>
+			</div>
+		}
+	}
 </div>
-<div class="addBtnMain">
-    <a href="#" class="addBtnMainEffects">Добави обява</a>
-</div>
+
+@{
+	if (isAdmin)
+	{
+		<div class="addBtnMain">
+			<a href="Offers/CreateOffer" class="addBtnMainEffects">Добави обява</a>
+		</div>
+	}
+}

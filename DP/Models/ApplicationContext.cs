@@ -16,5 +16,6 @@ namespace DP.Models
 
 		public DbSet<User> Users { get; set; }
 		public DbSet<Session> Sessions { get; set; }
+		public DbSet<Offer> Offers { get; set; }
     }
 }
