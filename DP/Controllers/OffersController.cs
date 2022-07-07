@@ -55,7 +55,6 @@ namespace DP.Controllers
 				Response.Redirect("/Offers");
 			}
 
-			var guid = Guid.NewGuid();
 			var stream = img.OpenReadStream();
 			byte[] bytes = new byte[stream.Length];
 			stream.Read(bytes, 0, (int)stream.Length);
@@ -72,6 +71,98 @@ namespace DP.Controllers
 
 			database.Offers.Add(offer);
 			database.SaveChanges();
+
+			Response.Redirect("/Offers");
+		}
+
+		[HttpPost]
+		public void DeleteOffer(int id)
+		{
+			string sessionId = Request.Cookies["SessionId"];
+			if (sessionId == string.Empty)
+			{
+				Response.Redirect("/Offers");
+			}
+
+			var session = database.Sessions.FirstOrDefault(s => s.SessionId == sessionId);
+
+			if (session == null || session.Account.Role != "Admin")
+			{
+				Response.Redirect("/Offers");
+			}
+
+			var offer = database.Offers.FirstOrDefault(o => o.Id == id);
+			if (offer != null)
+			{
+				database.Offers.Remove(offer);
+				database.SaveChanges();
+			}
+
+			Response.Redirect("/Offers");
+		}
+
+		[HttpPost]
+		public IActionResult EditOffer(int id)
+		{
+			string sessionId = Request.Cookies["SessionId"];
+			if (sessionId == string.Empty)
+			{
+				Response.Redirect("/Offers");
+			}
+
+			var session = database.Sessions.FirstOrDefault(s => s.SessionId == sessionId);
+
+			if (session == null || session.Account.Role != "Admin")
+			{
+				Response.Redirect("/Offers");
+			}
+
+			var offer = database.Offers.FirstOrDefault(o => o.Id == id);
+			if (offer != null)
+			{
+				ViewData["offer"] = offer;
+				return View("Edit", dbCache);
+			}
+
+			return View("Index", dbCache);
+		}
+
+		[HttpPost]
+		public void EditOffer_(int id, float price, string city, string street, string description, string state, IFormFile img)
+		{
+			string sessionId = Request.Cookies["SessionId"];
+			if (sessionId == string.Empty)
+			{
+				Response.Redirect("/Offers");
+			}
+
+			var session = database.Sessions.FirstOrDefault(s => s.SessionId == sessionId);
+
+			if (session == null || session.Account.Role != "Admin")
+			{
+				Response.Redirect("/Offers");
+			}
+
+			var offer = database.Offers.FirstOrDefault(o => o.Id == id);
+			if (offer != null)
+			{
+				offer.Price = price;
+				offer.City = city;
+				offer.Street = street;
+				offer.Description = description;
+				offer.State = state;
+				
+				if (img != null)
+				{
+					var stream = img.OpenReadStream();
+					byte[] bytes = new byte[stream.Length];
+					stream.Read(bytes, 0, (int)stream.Length);
+
+					offer.Base64Img = Convert.ToBase64String(bytes);
+				}
+
+				database.SaveChanges();
+			}
 
 			Response.Redirect("/Offers");
 		}

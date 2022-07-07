@@ -129,8 +129,14 @@
 							@{
 								if (isAdmin)
 								{
-									<a href="#" style=" width: 33px; text-align:center;" class="btnEdit1">✎</a>
-									<a href="#" style=" width:33px; text-align:center; " class="btnEdit2">✖</a>
+									<form action="Offers/EditOffer" method="post">
+										<input type="hidden" name="id" value="@offer.Id" />
+										<button type="submit" style=" width: 33px; text-align:center;" class="btnEdit1">✎</button>
+									</form>
+									<form action="Offers/DeleteOffer" method="post">
+										<input type="hidden" name="id" value="@offer.Id" />
+										<button type="submit" style=" width:33px; text-align:center; " class="btnEdit2">✖</button>
+									</form>
 								}
 							}
 						</div>

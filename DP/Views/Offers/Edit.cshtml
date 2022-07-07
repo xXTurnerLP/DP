@@ -1,0 +1,78 @@
+﻿@*@model DP.Models.Offer*@
+
+@{
+	ViewData["Title"] = "Редактиране на оферта";
+}
+
+@{ 
+	DP.Models.Offer _model = (DP.Models.Offer)ViewData["offer"];
+}
+
+<form action="EditOffer_" method="post" enctype="multipart/form-data">
+	<input type="hidden" name="id" value="@_model.Id" />
+
+	<label for="price">Цена</label>
+	<input type="number" id="price" name="price" step=".01" value="@_model.Price" />
+	<br />
+	<label for="city">Град</label>
+	<input type="text" id="city" name="city" value="@_model.City" />
+	<br />
+	<label for="street">Улица</label>
+	<input type="text" id="street" name="street" value="@_model.Street" />
+	<br />
+	<label for="description">Описание</label>
+	<input type="text" id="description" name="description" value="@_model.Description" />
+	<br />
+	<br />
+	<label>Статус</label>
+	<br />
+	<label for="state">Налично</label>
+	@{
+		if (_model.State == "available")
+		{
+			<input type="radio" id="state" name="state" value="available" checked="checked" />
+		}
+		else
+		{
+			<input type="radio" id="state" name="state" value="available" />
+		}
+	}
+	<br />
+	<label for="state2">Резервирано</label>
+	@{
+		if (_model.State == "reserved")
+		{
+			<input type="radio" id="state2" name="state" value="reserved" checked="checked" />
+		}
+		else
+		{
+			<input type="radio" id="state2" name="state" value="reserved" />
+		}
+	}
+	<br />
+	<label for="state3">Продадено</label>
+	@{
+		if (_model.State == "sold")
+		{
+			<input type="radio" id="state3" name="state" value="sold" checked="checked" />
+		}
+		else
+		{
+			<input type="radio" id="state3" name="state" value="sold" />
+		}
+	}
+
+	<br />
+	<br />
+
+	@* TODO: Set image max size because its too big *@
+	<label for="img">Снимка</label>
+	<img src="data:image/png;base64,@(_model.Base64Img)" alt="Cant load" />
+	<input type="file" id="img" name="img" accept="image/png" />
+
+	<br />
+	<br />
+	<br />
+
+	<button type="submit" id="btn">Редактирай офертата</button>
+</form>
