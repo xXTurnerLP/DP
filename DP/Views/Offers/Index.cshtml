@@ -91,53 +91,52 @@
 		}
 	}
 
-
 	<div class="displayRecently">
 		@{
 			foreach (var offer in Model.offers)
 			{
-				<div class="column" id="comunSize">
-					<img src="data:image/png;base64,@($"{offer.Base64Img}")" style="width: 40%; height: 20%; padding: 1.5%; margin: 3%; float: left ">
-					<div class="boxed">
-						<div style="text-align:left; display:inline-block; ">
-							<div class="cenaProd"> <span style="color: #00000f; font-family:Cambria; font-weight:700; font-size:1.05em">ЦЕНА:</span> @($"{offer.Price:0.00}") лв.</div>
+					<div class="column" id="comunSize">
+						<img src="data:image/png;base64,@($"{offer.Base64Img}")" style="width: 40%; height: 20%; margin: 3%; float: left; border:1px solid black ">
+						<div class="boxed">
+							<div style="text-align:left; display:inline-block; ">
+								<div class="cenaProd"> <span style="color: #00000f; font-family:Cambria; font-weight:700; font-size:1.05em">ЦЕНА:</span> @($"{offer.Price:0.00}") лв.</div>
+							</div>
+							<div style="overflow: hidden; word-break: break-all; max-height:20px;"><span style="color: #00000f; font-family:Cambria; font-weight:700; font-size:1.05em">ГРАД: </span>@($"{offer.City}")</div>
+							<div style="overflow: hidden; word-break: break-all; max-height:70px;"><span style="color: #00000f; font-family:Cambria; font-weight:700; font-size:1.05em">УЛИЦА: </span>@($"{offer.Street}")</div>
+							<div style="overflow: hidden; word-break: break-all; max-height:140px; "><span style="color: #00000f; font-family:Cambria; font-weight:700; font-size:1.05em;">ОПИСАНИЕ: </span>@($"{offer.Description}")</div>
 						</div>
-						<div style="overflow: hidden; word-break: break-all;"><span style="color: #00000f; font-family:Cambria; font-weight:700; font-size:1.05em">ГРАД: </span>@($"{offer.City}")</div>
-						<div style="overflow: hidden; max-height: 70px;"><span style="color: #00000f; font-family:Cambria; font-weight:700; font-size:1.05em">УЛИЦА: </span>@($"{offer.Street}")</div>
-						<div style="overflow: hidden; inline-size: 100%; max-height:150px; "><span style="color: #00000f; font-family:Cambria; font-weight:700; font-size:1.05em;">ОПИСАНИЕ: </span>@($"{offer.Description}")</div>
-					</div>
-					<div class="btnNinfoholder">
-						<div class="infoStatusBuild">
-							@{
+						<div class="btnNinfoholder">
+							<div class="infoStatusBuild">
+								@{
 								switch (offer.State)
 								{
 									case "reserved":
-										<span class="infoStatusBuildTxtReserved">Резервирано</span>
+												<span class="infoStatusBuildTxtReserved">Резервирано</span>
 										break;
 									case "available":
-										<span class="infoStatusBuildTxtAvailable">Налично</span>
+												<span class="infoStatusBuildTxtAvailable">Налично</span>
 										break;
 									case "sold":
-										<span class="infoStatusBuildTxtSold">Продадено</span>
+												<span class="infoStatusBuildTxtSold">Продадено</span>
 										break;
 								}
-							}
-							@{
+								}
+								@{
 								if (isAdmin)
 								{
-									<form action="Offers/EditOffer" method="post">
-										<input type="hidden" name="id" value="@offer.Id" />
-										<button type="submit" style=" width: 33px; text-align:center;" class="btnEdit1">✎</button>
-									</form>
-									<form action="Offers/DeleteOffer" method="post">
-										<input type="hidden" name="id" value="@offer.Id" />
-										<button type="submit" style=" width:33px; text-align:center; " class="btnEdit2">✖</button>
-									</form>
+											<form action="Offers/EditOffer" method="post">
+												<input type="hidden" name="id" value="@offer.Id" />
+												<button type="submit" style=" width: 33px; text-align:center;" class="btnEdit1">✎</button>
+											</form>
+											<form action="Offers/DeleteOffer" method="post">
+												<input type="hidden" name="id" value="@offer.Id" />
+												<button type="submit" style=" width:33px; text-align:center; " class="btnEdit2">✖</button>
+											</form>
 								}
-							}
+								}
+							</div>
 						</div>
 					</div>
-				</div>
 			}
 		}
 	</div>
@@ -146,8 +145,8 @@
 @{
 	if (isAdmin)
 	{
-		<div class="addBtnMain">
-			<a href="/Offers/CreateOffer" class="addBtnMainEffects">Добави обява</a>
-		</div>
+	<div class="addBtnMain">
+				<a href="/Offers/CreateOffer" class="addBtnMainEffects">Добави обява</a>
+	</div>
 	}
 }

@@ -40,46 +40,4 @@
 	<br />
 
 	<button type="submit" id="btn">Добави оферта</button>
-</form>@*@model DP.Models.Auth.DbCache*@
-
-@{
-	ViewData["Title"] = "Създаване на оферта";
-}
-
-<form action="CreateOffer" method="post" enctype="multipart/form-data">
-	<label for="price">Цена</label>
-	<input type="number" id="price" name="price" step=".01" required/>
-	<br />
-	<label for="city">Град</label>
-	<input type="text" id="city" name="city" required/>
-	<br />
-	<label for="street">Улица</label>
-	<input type="text" id="street" name="street" required/>
-	<br />
-	<label for="description">Описание</label>
-	<input type="text" id="description" name="description" required/>
-	<br />
-	<br />
-	<label>Статус</label>
-	<br />
-	<label for="state">Налично</label>
-	<input type="radio" id="state" name="state" value="available" required/>
-	<br />
-	<label for="state2">Резервирано</label>
-	<input type="radio" id="state2" name="state" value="reserved" required/>
-	<br />
-	<label for="state3">Продадено</label>
-	<input type="radio" id="state3" name="state" value="sold" required/>
-
-	<br />
-	<br />
-
-	<label for="img">Снимка</label>
-	<input type="file" id="img" name="img" accept="image/png" required />
-
-	<br />
-	<br />
-	<br />
-
-	<button type="submit" id="btn">Добави оферта</button>
 </form>

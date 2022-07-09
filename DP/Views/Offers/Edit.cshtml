@@ -7,20 +7,20 @@
 @{ 
 	DP.Models.Offer _model = (DP.Models.Offer)ViewData["offer"];
 }
+<center>
 
-<form action="EditOffer_" method="post" enctype="multipart/form-data">
+<form action="EditOffer_" method="post" enctype="multipart/form-data" class="alignText">
 	<input type="hidden" name="id" value="@_model.Id" />
-
-	<label for="price">Цена</label>
-	<input type="number" id="price" name="price" step=".01" value="@_model.Price" />
+	<label for="price">Цена:</label>
+	<input type="number" id="price" name="price" step=".01" value="@_model.Price" placeholder="cena" />
 	<br />
-	<label for="city">Град</label>
+	<label for="city">Град:</label>
 	<input type="text" id="city" name="city" value="@_model.City" />
 	<br />
-	<label for="street">Улица</label>
+	<label for="street">Улица:</label>
 	<input type="text" id="street" name="street" value="@_model.Street" />
 	<br />
-	<label for="description">Описание</label>
+	<label for="description">Описание:</label>
 	<input type="text" id="description" name="description" value="@_model.Description" />
 	<br />
 	<br />
@@ -71,8 +71,6 @@
 	<input type="file" id="img" name="img" accept="image/png" />
 
 	<br />
-	<br />
-	<br />
-
 	<button type="submit" id="btn">Редактирай офертата</button>
 </form>
+</center>

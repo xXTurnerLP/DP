@@ -200,19 +200,19 @@
 
 .infoStatusBuildTxtReserved {
     border: 1px solid black;
-    padding: 0.3%;
+    padding: 4%;
     background-color: #fcc483;
 }
 
 .infoStatusBuildTxtAvailable {
     border: 1px solid black;
-    padding: 0.3%;
+    padding: 4%;
     background-color: #94fa5c;
 }
 
 .infoStatusBuildTxtSold {
     border: 1px solid black;
-    padding: 0.3%;
+    padding: 4%;
     background-color: #8c9596;
 }
 
@@ -223,6 +223,16 @@
 }
 
 .snimkaEdit{
-    max-width:350px;
+    max-width:20vw;
     border:1px solid black;
+}
+
+.alignText {
+    display: inline-block;
+    text-align: left;
+}
+
+.ninjaMaker{
+    height:70vh;
+    background-color:aquamarine;
 }

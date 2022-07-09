@@ -5,23 +5,73 @@
 }
 
 @{
-	string sessionId = Context.Request.Cookies["SessionId"];
+    string sessionId = Context.Request.Cookies["SessionId"];
 
-	bool potentialEmpty = false;
+    bool potentialEmpty = false;
 
-	if (sessionId == string.Empty || !Model.sessions.Any(s => s.SessionId == sessionId))
-	{
-		potentialEmpty = true;
-	}
-	else
-	{
-		bool isAdmin = Model.sessions.FirstOrDefault(s => s.SessionId == sessionId)?.Account?.Role == "Admin";
+    if (sessionId == string.Empty || !Model.sessions.Any(s => s.SessionId == sessionId))
+    {
+        potentialEmpty = true;
+    }
+    else
+    {
+        bool isAdmin = Model.sessions.FirstOrDefault(s => s.SessionId == sessionId)?.Account?.Role == "Admin";
 
-		if (isAdmin)
-		{
-			@*<a href="About/Edit" class="btnEdit">✎</a>*@
-		}
-	}
+        if (isAdmin)
+        {
+            // Edit button here
+             //<a href="#" class="btnEdit">✎</a>
+        }
+    }
 }
 
-За нас:
+
+<div id="backgroundMain">
+    <div id="whyForU">
+        <center>
+            <span id="whyForUText">
+                ЗАЩО ПЕРФЕКТНИЯТ ДОМ Е РЕШЕНИЕТО ЗА ВАС
+            </span>
+        </center>
+        <hr id="lineHR"/>
+        <div id="moreInfoForU">
+            <span id="firstForUtext">
+                Ние сме доверена фирма за Професионално и Абонаментно почистване на територията на град Шумен
+            </span>
+            <br />
+            <br />
+            <span>
+                “Перфектният Дом” ООД е качественото решение, което търсите. Като доказан лидер в сферата, предлагаме разнообразни почистващи услуги на високо ниво.
+            </span>
+            <br />
+            <br />
+            <span id="secondForUtext">
+                Това, което ни отличава е, че държим клиента на първо място и полагаме специално внимание към всеки.
+            </span>
+            <br />
+            <br />
+            <span>
+                Използваме модерно оборудване, екологични препарати и добре квалифициран персонал.
+            </span>
+            <br />
+            <br />
+            <span id="secondForUtext">
+                Обадете се за безплатна консултация на 08887777666
+            </span>
+        </div>
+        <div>
+            <span>“Перфектният Дом” ООД ще внесе чистота и свежест във Вашият дом и офис предоставяйки</span>
+            <ul>
+                <li class="txtBold">ПРОФЕСИОНАЛНА ГРИЖА</li>
+                <span>Можете да се доверите на екипите ни от качествено обучени специалисти, които използват само професионални машини и препарати. Те са опитни и тясно специализирани в своите задачи. Обучени са и работят само с професионална техника и продукти за най-добра ефективност</span>
+                <li class="txtBold">ОТГОВОРНО ИЗПЪЛНЕНИЕ НА УСЛУГАТА</li>
+                <span>Нашите служители са мотивирани и стимулирани да свършат работата възможно най-бързо, но качествено! Те ще се отнесат изключително внимателно към имуществото Ви без това да попречи на изпълнението на работата им</span>
+                <li class="txtBold">ДОБРА ЦЕНА</li>
+                <span>Ще Ви предложим най-добрата възможна цена, отговаряща на професионалното качество на услугите ни. Най-доброто съотношение на цена – качество предлагано във Варна. При нестандартни задачи можем да Ви дадем и индивидуални цени след консултация</span>
+                <li class="txtBold">ПАКЕТНИ ОТСТЪПКИ</li>
+                <span>Ние сме единствените, които предлагат както почистващи, така и хамалски услуги. Само при нас можете да се възползвате от уникалните ни пакетни цени, които предлагаме при комбиниране на почистване, транспорт или пренасяне с хамали</span>
+            </ul>
+        </div>
+        <hr id="lineHR"/>
+    </div>
+</div>
