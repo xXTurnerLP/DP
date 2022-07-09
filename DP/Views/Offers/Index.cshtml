@@ -96,10 +96,11 @@
 		}
 	}
 
-	@{
-		foreach (var offer in Model.offers)
-		{
-			<div class="displayRecently">
+
+	<div class="displayRecently">
+		@{
+			foreach (var offer in Model.offers)
+			{
 				<div class="column" id="comunSize">
 					<img src="data:image/png;base64,@($"{offer.Base64Img}")" style="width: 40%; height: 20%; padding: 1.5%; margin: 3%; float: left ">
 					<div class="boxed">
@@ -142,9 +143,9 @@
 						</div>
 					</div>
 				</div>
-			</div>
+			}
 		}
-	}
+	</div>
 </div>
 
 @{
