@@ -5,24 +5,23 @@
 }
 
 @{
-    string sessionId = Context.Request.Cookies["SessionId"];
+	string sessionId = Context.Request.Cookies["SessionId"];
 
-    bool potentialEmpty = false;
+	bool potentialEmpty = false;
 
-    if (sessionId == string.Empty || !Model.sessions.Any(s => s.SessionId == sessionId))
-    {
-        potentialEmpty = true;
-    }
-    else
-    {
-        bool isAdmin = Model.sessions.FirstOrDefault(s => s.SessionId == sessionId)?.Account?.Role == "Admin";
+	if (sessionId == string.Empty || !Model.sessions.Any(s => s.SessionId == sessionId))
+	{
+		potentialEmpty = true;
+	}
+	else
+	{
+		bool isAdmin = Model.sessions.FirstOrDefault(s => s.SessionId == sessionId)?.Account?.Role == "Admin";
 
-        if (isAdmin)
-        {
-            // Edit button here
-             <a href="#" class="btnEdit">✎</a>
-        }
-    }
+		if (isAdmin)
+		{
+			@*<a href="About/Edit" class="btnEdit">✎</a>*@
+		}
+	}
 }
 
 За нас:
