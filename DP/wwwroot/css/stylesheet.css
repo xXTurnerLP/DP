@@ -221,3 +221,8 @@
     min-height:325px;
     position:relative;
 }
+
+.snimkaEdit{
+    max-width:350px;
+    border:1px solid black;
+}
