@@ -232,7 +232,31 @@
     text-align: left;
 }
 
-.ninjaMaker{
-    height:70vh;
-    background-color:aquamarine;
+.ninjaMaker {
+    height: 84vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.btnCrcl {
+    transition: 0.35s;
+    background-color: lime;
+    border-radius: 50%;
+    padding: 100%;
+    text-decoration: none;
+    color: black;
+}
+
+.spaceCrcl{
+    margin:2vw;
+}
+
+.btnCrcl:hover {
+    transition:0.35s;
+    background-color: darkgreen;
+    border-radius: 50%;
+    padding: 100%;
+    text-decoration: none;
+    color: black;
 }
