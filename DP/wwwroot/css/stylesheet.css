@@ -245,7 +245,7 @@
 }
 
 .btnCrcl {
-    background-color: white;
+    background-color: #ebffec;
     transition: 0.25s;
     text-decoration: none;
     color: black;
@@ -340,4 +340,14 @@
 .imgTop{
     max-height:100%;
     max-width:100%;
+}
+
+.priceColor{
+    color:black;
+  
+}
+
+.priceColor1 {
+    color: black;
+    
 }
