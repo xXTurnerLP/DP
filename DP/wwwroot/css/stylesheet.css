@@ -303,7 +303,7 @@
 
 .holderTopOffer {
     width: 100%;
-    height: 85vh;
+    height: fit-content;
     display: flex;
     align-items: center;
     justify-content: flex-start;
@@ -342,6 +342,7 @@
     display: flex;
     justify-content: center;
     align-items: flex-start;
+    margin:8%;
 }
 
 .borderMax {
@@ -352,9 +353,9 @@
     box-shadow: 2px 5px 6px 3px gray;
 }
 
-.imgTop{
-    max-height:100%;
-    max-width:100%;
+.imgTop {
+    max-height: 100%;
+    max-width: 100%;
 }
 
 .priceColor{
